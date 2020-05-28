@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_221758) do
+ActiveRecord::Schema.define(version: 2020_05_28_221701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,18 +18,18 @@ ActiveRecord::Schema.define(version: 2020_05_28_221758) do
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.datetime "date"
+    t.bigint "place_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_events_on_place_id"
   end
 
   create_table "places", force: :cascade do |t|
     t.string "google_place_id"
     t.string "name"
     t.string "address"
-    t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_places_on_event_id"
   end
 
   create_table "preferences", force: :cascade do |t|
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2020_05_28_221758) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "places", "events"
+  add_foreign_key "events", "places"
   add_foreign_key "trip_events", "events"
   add_foreign_key "trip_events", "trips"
   add_foreign_key "trip_preferences", "preferences"
