@@ -30,4 +30,6 @@ Style/Documentation:
 
 Style/StringLiterals:
   Enabled: true
-  
+
+Metrics/BlockLength:
+  Max: 75

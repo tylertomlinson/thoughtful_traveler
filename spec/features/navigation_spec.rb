@@ -20,7 +20,7 @@ RSpec.describe 'Site Navigation' do
           click_link 'Sign In/Register'
         end
 
-        #Need to have have oauth and sign in be on same page for routing
+        # Need to have have oauth and sign in be on same page for routing
         expect(current_path).to eq(sign_in_path)
         expect(current_path).to eq(registration_path)
       end
@@ -44,7 +44,7 @@ RSpec.describe 'Site Navigation' do
         within 'nav' do
           click_link 'Log Out'
         end
-        
+
         expect(current_path).to eq(root_path)
       end
 
