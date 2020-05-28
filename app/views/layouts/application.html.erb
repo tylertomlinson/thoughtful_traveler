@@ -5,11 +5,68 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5716af9226.js" crossorigin="anonymous"></script>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+  <header id="header" class="fixed-top">
+    <div class="container d-flex">
+
+      <h1 class="logo mr-auto"><a><span>Thoughtful</span>Traveler</a></h1>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/">Sign In/Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <%= yield %>
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h8>USEFUL LINKS</h8>
+            <ul><br>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-5 col-md-6 footer-links">
+            <a style= padding-left:80px><h8>DEV TEAM</h8></a><br><br>
+            Tyler Tomlinson
+            <a style= padding-left:49px href="https://github.com/tylertomlinson"><i class="fab fa-github fa-lg white-text mr-md-6 mr-5 fa-2x" aria-hidden="true"></i></a>
+            <a style= padding-left:25px href="https://www.linkedin.com/in/tylerwtomlinson/"><i class="fab fa-linkedin-in fa-lg white-text mr-md-6 mr-5 fa-2x"></i></a><br><br>
+            Brian Greeson
+            <a style= padding-left:55px href="https://github.com/brian-greeson"><i class="fab fa-github fa-lg white-text mr-md-6 mr-5 fa-2x" aria-hidden="true"></i></a>
+            <a style= padding-left:25px href="https://www.linkedin.com/in/briangreeson/"><i class="fab fa-linkedin-in fa-lg white-text mr-md-6 mr-5 fa-2x"></i></a><br><br>
+            Michael Alex Lynch
+            <a style= padding-left:23px href="https://github.com/mlynch5187"><i class="fab fa-github fa-lg white-text mr-md-6 mr-5 fa-2x" aria-hidden="true"></i></a>
+            <a style= padding-left:25px href="https://www.linkedin.com/in/michaelalexlynch/"><i class="fab fa-linkedin-in fa-lg white-text mr-md-6 mr-5 fa-2x"></i></a><br><br>
+            Jessie Gietzen
+            <a style= padding-left:52px href="https://github.com/elguapogordo"><i class="fab fa-github fa-lg white-text mr-md-6 mr-5 fa-2x" aria-hidden="true"></i></a>
+            <a style= padding-left:25px href="https://www.linkedin.com/in/jesse-gietzen-2w0x1/"><i class="fab fa-linkedin-in fa-lg white-text mr-md-6 mr-5 fa-2x"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          &copy; Copyright <strong><span></span></strong>. All Rights Reserved
+        </div>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>
