@@ -1,4 +1,4 @@
 class Trip < ApplicationRecord
-  has_many :user_trips, dependent: :destroy
-  has_many :user, through: :user_trips
+  belongs_to :place
+  belongs_to :user
 end
