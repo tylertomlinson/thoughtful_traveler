@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :user do
     get "/", to: "dashboard#index"
+    get "/:id/edit", to: "dashboard#edit"
     resources :trips, only: [:index]
   end
 end
