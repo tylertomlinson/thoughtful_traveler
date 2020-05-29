@@ -1,5 +1,9 @@
-class User::DashboardController < ApplicationController
-  before_action :require_current_user
+class User::DashboardController < User::BaseController
 
-  def index; end
+  def index
+    @user = current_user
+  end
+
+  def edit
+  end
 end

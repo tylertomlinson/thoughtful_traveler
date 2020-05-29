@@ -11,20 +11,20 @@ RSpec.describe 'Past trips index' do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     end
-    it 'can access past trips index' do
+    xit 'can access past trips index' do
       visit '/user'
 
       click_on ('Past Trips')
     end
 
-    it 'can see links to past trips' do
+    xit 'can see links to past trips' do
       visit "/user/trips"
 
       expect(page).to have_link('Trip 1')
       expect(page).to have_link('Trip 2')
     end
 
-    it 'can click past trip and be redirected to past trip show page' do
+    xit 'can click past trip and be redirected to past trip show page' do
 
       visit "/user/trips"
 
