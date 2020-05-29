@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_221701) do
+ActiveRecord::Schema.define(version: 2020_05_29_033854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,16 +25,8 @@ ActiveRecord::Schema.define(version: 2020_05_28_221701) do
   end
 
   create_table "places", force: :cascade do |t|
-    t.string "google_place_id"
     t.string "name"
     t.string "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "preferences", force: :cascade do |t|
-    t.integer "event"
-    t.integer "food"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,34 +40,19 @@ ActiveRecord::Schema.define(version: 2020_05_28_221701) do
     t.index ["trip_id"], name: "index_trip_events_on_trip_id"
   end
 
-  create_table "trip_preferences", force: :cascade do |t|
-    t.bigint "trip_id"
-    t.bigint "preference_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["preference_id"], name: "index_trip_preferences_on_preference_id"
-    t.index ["trip_id"], name: "index_trip_preferences_on_trip_id"
-  end
-
   create_table "trips", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
-    t.string "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_trips", force: :cascade do |t|
+    t.bigint "place_id"
     t.bigint "user_id"
-    t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["trip_id"], name: "index_user_trips_on_trip_id"
-    t.index ["user_id"], name: "index_user_trips_on_user_id"
+    t.index ["place_id"], name: "index_trips_on_place_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "full_name"
+    t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -84,8 +61,6 @@ ActiveRecord::Schema.define(version: 2020_05_28_221701) do
   add_foreign_key "events", "places"
   add_foreign_key "trip_events", "events"
   add_foreign_key "trip_events", "trips"
-  add_foreign_key "trip_preferences", "preferences"
-  add_foreign_key "trip_preferences", "trips"
-  add_foreign_key "user_trips", "trips"
-  add_foreign_key "user_trips", "users"
+  add_foreign_key "trips", "places"
+  add_foreign_key "trips", "users"
 end
