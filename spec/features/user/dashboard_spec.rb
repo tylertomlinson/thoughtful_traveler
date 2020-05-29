@@ -22,15 +22,14 @@ RSpec.describe 'User Dashboard Index' do
 
           click_link "New Trip"
 
-          expect(current_path).to eq("/user/trips/new")          
+          expect(current_path).to eq("/user/trips/new")
         end
 
-        xit 'I can see upcoming trips button and it routes to correct page' do
+        it 'I can see upcoming trips button and it routes to correct page' do
 
-          expect(page).to have_content("Upcoming Trips")
+          click_link "Upcoming Trips"
 
-          click_button
-
+          expect(current_path).to eq("/user/upcoming_trips")
         end
 
         xit 'I can see past trips button and it routes to correct page' do

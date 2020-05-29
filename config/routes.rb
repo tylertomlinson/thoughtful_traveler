@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     get "/:id/edit", to: "dashboard#edit"
 
     resources :trips, only: [:index, :new, :create]
+    resources :upcoming_trips
   end
 end
