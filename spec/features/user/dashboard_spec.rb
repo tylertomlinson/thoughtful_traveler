@@ -13,9 +13,7 @@ RSpec.describe 'User Dashboard Index' do
 
         it 'I can see edit profile button and it routes to correct page' do
 
-          expect(page).to have_content("Edit Profile")
-
-          click_button "Edit Profile"
+          click_link "Edit Profile"
 
           expect(current_path).to eq("/user/#{@user.id}/edit")
         end
