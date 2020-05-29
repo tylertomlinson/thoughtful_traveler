@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   namespace :user do
+    get "/edit", to: "profile#edit"
     get "/", to: "dashboard#index"
-    resources :trips, only: [:index]
+    resources :trips, only: [:index,]
   end
 end
