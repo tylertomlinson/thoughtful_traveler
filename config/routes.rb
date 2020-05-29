@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :user do
     get "/edit", to: "profile#edit"
+    patch "/", to: "profile#update"
     get "/", to: "dashboard#index"
     resources :trips, only: [:index,]
   end
