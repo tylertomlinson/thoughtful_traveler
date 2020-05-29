@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
     resources :trips, only: [:index, :new, :create]
     resources :upcoming_trips
+    resources :past_trips
   end
 end
