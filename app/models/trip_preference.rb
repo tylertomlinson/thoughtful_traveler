@@ -1,4 +1,4 @@
 class TripPreference < ApplicationRecord
-  belongs_to :trip_id
-  belongs_to :preference_id
+  belongs_to :trip
+  belongs_to :preference
 end
