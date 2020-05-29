@@ -15,7 +15,7 @@ RSpec.describe 'User Dashboard Index' do
 
           click_link "Edit Profile"
 
-          expect(current_path).to eq("/user/#{@user.id}/edit")
+          expect(current_path).to eq(user_edit_path)
         end
 
         it 'I can see new trip button and it routes to correct page' do

@@ -1,3 +1,3 @@
-class User::PastTripsController < ApplicationController
+class User::PastTripsController < User::BaseController
   def index; end
 end

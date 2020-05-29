@@ -1,4 +1,4 @@
-class User::UpcomingTripsController < ApplicationController
+class User::UpcomingTripsController < User::BaseController
 
   def index; end
 

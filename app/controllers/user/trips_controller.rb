@@ -1,4 +1,4 @@
-class User::TripsController < ApplicationController
+class User::TripsController < User::BaseController
   def index; end
 
   def new; end
