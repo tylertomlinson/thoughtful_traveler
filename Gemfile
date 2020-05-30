@@ -22,6 +22,9 @@ gem 'faraday'
 gem 'fast_jsonapi'
 gem 'figaro'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'omniauth'
+gem 'dotenv-rails'
 gem 'will_paginate'
 
 gem 'bootsnap', '>= 1.1.0', require: false
