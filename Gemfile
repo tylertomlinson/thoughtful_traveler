@@ -16,15 +16,15 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'turbolinks', '~> 5'
 
+gem 'dotenv-rails'
 gem 'factory_bot_rails'
 gem 'faker'
 gem 'faraday'
 gem 'fast_jsonapi'
 gem 'figaro'
-gem 'omniauth-google-oauth2'
-gem 'omniauth-facebook'
 gem 'omniauth'
-gem 'dotenv-rails'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'will_paginate'
 
 gem 'bootsnap', '>= 1.1.0', require: false

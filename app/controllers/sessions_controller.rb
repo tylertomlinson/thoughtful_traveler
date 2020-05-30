@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-
   def omniauth
     @user = User.from_omniauth(auth)
     @user.save
