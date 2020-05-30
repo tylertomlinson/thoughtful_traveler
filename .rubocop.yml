@@ -25,6 +25,9 @@ Style/SymbolArray:
   Enabled: true
   EnforcedStyle: brackets
 
+Style/ClassAndModuleChildren:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
@@ -33,3 +36,9 @@ Style/StringLiterals:
 
 Metrics/BlockLength:
   Max: 75
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/RedundantBegin:
+  Enabled: false

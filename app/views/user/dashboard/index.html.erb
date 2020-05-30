@@ -1,8 +1,47 @@
-<h1>Dashboard</h1>
-<%= link_to "Edit Profile", user_edit_path, class:"btn btn-primary" %>
-</br>
-<%= link_to "New Trip", "/user/trips/new", class:"btn btn-primary" %>
-</br>
-<%= link_to "Upcoming Trips", "/user/upcoming_trips", class:"btn btn-primary" %>
-</br>
-<%= link_to "Past Trips", "/user/past_trips", class:"btn btn-primary" %>
+<div class="container1">
+  <h2 class= "carousel-header">Plan Your Next Trip</h2>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators --
+    <!--
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol> -->
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img id='pics-car' src="https://i.imgur.com/c2LuljB.jpg" alt="New York" >
+      </div>
+
+      <div class="item">
+        <img id='pics-car' src="https://i.imgur.com/Sno9Ozt.jpg" alt="Chicago">
+      </div>
+
+      <div class="item">
+        <img id='pics-car' src="https://i.imgur.com/DGg439Z.jpg" alt="Vail" style="width:100%;">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<div class='profile-links'>
+  <%= link_to "Edit Profile", user_edit_path, class:"btn btn-primary" %>
+
+  <%= link_to "New Trip", "/user/trips/new", class:"btn btn-primary" %>
+
+  <%= link_to "Upcoming Trips", "/user/upcoming_trips", class:"btn btn-primary" %>
+
+  <%= link_to "Past Trips", "/user/past_trips", class:"btn btn-primary" %>
+</div>

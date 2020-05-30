@@ -12,5 +12,4 @@ class User::ProfileController < User::BaseController
       render edit
     end
   end
-
 end

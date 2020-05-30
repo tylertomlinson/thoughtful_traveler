@@ -5,6 +5,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #4d4643;
+  height: 100%
 }
 
 a {
@@ -460,7 +461,13 @@ section {
   color: #fff;
   font-size: 14px;
   background: #111;
+  bottom: -50px;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  right: 0;
 }
+
 
 #footer .footer-top {
   padding: 60px 0 30px 0;
@@ -589,4 +596,46 @@ section {
   padding-top: 5px;
   font-size: 13px;
   color: #fff;
+}
+
+.carousel-inner img{
+  width: 100%;
+}
+
+.carousel {
+  height: 450px;
+}
+
+.carousel-inner {
+  height: 450px;
+}
+
+#pics-car {
+  height: 450px;
+}
+
+.profile-links {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.container1 {
+  margin: 3%;
+}
+
+.carousel-header {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-header h2 {
+  position: relative;
+  bottom: 60px;
+}
+
+.google-button {
+  display: flex;
+  justify-content: center;
+  margin: 10%;
 }

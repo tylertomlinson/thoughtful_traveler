@@ -52,10 +52,13 @@ ActiveRecord::Schema.define(version: 2020_05_29_033854) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+    t.string "user_name"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
+    t.string "name"
+    t.string "uid"
   end
 
   add_foreign_key "events", "places"
