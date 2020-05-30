@@ -599,5 +599,37 @@ section {
 }
 
 .carousel-inner img{
-  width: 75%;
+  width: 100%;
+}
+
+.carousel {
+  height: 450px;
+}
+
+.carousel-inner {
+  height: 450px;
+}
+
+#pics-car {
+  height: 450px;
+}
+
+.profile-links {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.container1 {
+  margin: 3%;
+}
+
+.carousel-header {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-header h2 {
+  position: relative;
+  bottom: 60px;
 }
