@@ -13,7 +13,8 @@ RSpec.describe 'Trips show page' do
       visit "/user/trips/#{trip.id}"
 
       expect(page).to have_content(event1.name)
-      save_and_open_page
+
+      #add email
     end
   end
 end
