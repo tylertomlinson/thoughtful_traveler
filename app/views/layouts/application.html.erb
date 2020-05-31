@@ -25,6 +25,13 @@
             <%= link_to "Sign In", "/login" unless current_user %>
             <%= link_to "Logout", "/logout", method: :delete if current_user %>
         </ul>
+        <div class="flash">
+        <% flash.each do |name, msg| %>
+        <div class= "<%=name%>-flash">
+          <p><%= msg %></p>
+        </div>
+        </div>
+      <% end %>
       </nav>
     </div>
   </header>
@@ -39,7 +46,7 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h8>USEFUL LINKS</h8>
             <ul><br>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/user">Profile</a></li>
             </ul>
           </div>
 
