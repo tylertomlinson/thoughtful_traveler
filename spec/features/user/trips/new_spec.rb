@@ -23,7 +23,7 @@ RSpec.describe "As a user on my dashboard" do
       end
       click_on "Create My Trip"
 
-      # expect(current_path).to eq(edit_user_trip_path(Trip.first))
+      expect(current_path).to eq(edit_user_trip_path(Trip.first))
     end
   end
 end
