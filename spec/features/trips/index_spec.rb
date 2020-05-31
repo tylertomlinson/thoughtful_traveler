@@ -11,7 +11,7 @@ RSpec.describe 'Past trips index' do
 
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
       end
-      xit 'can access past trips index' do
+      it 'can access past trips index' do
         visit '/user'
 
         click_on 'Past Trips'
