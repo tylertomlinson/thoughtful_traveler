@@ -7,7 +7,7 @@ RSpec.describe 'Site Navigation' do
         visit root_path
 
         within 'nav' do
-          click_link 'Sign In/Register'
+          click_link 'Sign In'
         end
 
         expect(current_path).to eq(login_path)
@@ -20,17 +20,17 @@ RSpec.describe 'Site Navigation' do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
       end
 
-      xit 'I can see I am logged in' do
+      it 'I can see I am logged in' do
         visit root_path
 
         expect(page).to have_content("Logged in as #{@user.name}")
       end
 
-      xit 'the logout page' do
+      it 'the logout page' do
         visit root_path
 
-        within 'nav' do
-          click_link 'Log Out'
+        within 'header' do
+          click_link 'Logout'
         end
 
         expect(current_path).to eq(root_path)
@@ -39,17 +39,17 @@ RSpec.describe 'Site Navigation' do
       it 'my profile page' do
         visit root_path
 
-        within 'nav' do
+        within 'header' do
           click_link 'Home'
         end
 
         expect(current_path).to eq('/user')
       end
 
-      xit 'the sign in/register does not show' do
+      it 'the sign in/register does not show' do
         visit root_path
 
-        expect(page).to_not have_link('Sign In/Register')
+        expect(page).to_not have_link('Sign In')
       end
     end
   end
