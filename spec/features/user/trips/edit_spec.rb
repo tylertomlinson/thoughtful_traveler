@@ -9,7 +9,7 @@ RSpec.describe 'As a user when i create a new trip' do
     event2 = trip.events.create(attributes_for(:event))
 
     visit edit_user_trip_path(trip)
-save_and_open_page
+
     expect(page).to have_content('Event Confirmation')
 
     within '.event-list' do
