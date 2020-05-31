@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   get '/login', to: 'login#index'
+  delete "/logout", to: "sessions#destroy"
   get '/auth/facebook/callback' => 'sessions#omniauth'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 end
