@@ -1,8 +1,7 @@
 class User::TripsController < User::BaseController
   def index; end
 
-  def new
-  end
+  def new; end
 
   def create
     begin
@@ -29,6 +28,4 @@ class User::TripsController < User::BaseController
   def attration_params
     params.permit(:music, :sports, :theater, :amusement_parks, :museums, :zoo)
   end
-
-
 end
