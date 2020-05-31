@@ -13,7 +13,13 @@ class User::TripsController < User::BaseController
     end
   end
 
-  def edit; end
+  def show
+    @trip = Trip.find(params[:id])
+  end
+
+  def edit
+    @trip = Trip.find(params[:id])
+  end
 
   private
 
