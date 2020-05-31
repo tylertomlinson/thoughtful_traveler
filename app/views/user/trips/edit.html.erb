@@ -1,0 +1,10 @@
+<h1>Event Confirmation</h1>
+<section class='event-list'>
+  <% @trip.events.each do |event| %>
+  <article id="event-<%= event.id %>">
+    <h3 id="event-<%= event.id %>-name"><%= event.name %></h3>
+    <div id="event-<%= event.id %>-genre"><%= event.genre %></div>
+      <%= button_to 'Pick Another', url: %>
+  </article>
+  <% end %>
+</section>
