@@ -14,7 +14,7 @@ class User::TripsController < User::BaseController
   end
 
   def edit
-    @trip = Trip.find(params[:id])
+    @trip_events = Trip.find(params[:id]).trip_events
   end
 
   private
