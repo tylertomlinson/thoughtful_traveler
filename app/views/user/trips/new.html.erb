@@ -1,0 +1,8 @@
+<h1 class="text-center1">Trip Preferences</h1>
+<%= form_with model: @trip do |form| %>
+  <%= form.label :location %>
+  <%= form.text_field :location %>
+  <%= form.label :start_date %>
+  <%= form.date_field :start_date %>
+  <%= form.submit "Create My Trip", class: "btn btn-default btn-primary" %>
+<% end %>
