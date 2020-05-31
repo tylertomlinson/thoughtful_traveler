@@ -9,22 +9,22 @@ RSpec.describe 'As a user when i create a new trip' do
     event2 = trip.events.create(attributes_for(:event))
 
     visit edit_user_trip_path(trip)
-
+save_and_open_page
     expect(page).to have_content('Event Confirmation')
 
     within '.event-list' do
       within "#event-#{event1.id}" do
-        expect("#event-#{event1.id}-name").to have_content(event1.name)
-        expect("#event-#{event1.id}-genre").to have_content(event1.genre)
+        expect(find("#event-#{event1.id}-name")).to have_content(event1.name)
+        expect(find("#event-#{event1.id}-genre")).to have_content(event1.genre)
         expect(page).to have_button('Pick Another')
       end
       within "#event-#{event2.id}" do
-        expect("#event-#{event2.id}-name").to have_content(event2.name)
-        expect("#event-#{event2.id}-genre").to have_content(event2.genre)
+        expect(find("#event-#{event2.id}-name")).to have_content(event2.name)
+        expect(find("#event-#{event2.id}-genre")).to have_content(event2.genre)
 
         click_button('Pick Another')
 
-        expect("#event-#{event2.id}-name").not_to have_content(event2.name)
+        expect(find("#event-#{event2.id}-name")).not_to have_content(event2.name)
       end
     end
     click_button('Confirm Trip')
