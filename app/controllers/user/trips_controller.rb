@@ -25,7 +25,7 @@ class User::TripsController < User::BaseController
     params.permit(:indian, :mexican, :pizza, :italian, :american)
   end
 
-  def attration_params
+  def attraction_params
     params.permit(:music, :sports, :theater, :amusement_parks, :museums, :zoo)
   end
 end
