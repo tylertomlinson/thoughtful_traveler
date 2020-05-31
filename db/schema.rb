@@ -18,15 +18,7 @@ ActiveRecord::Schema.define(version: 2020_05_29_033854) do
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.datetime "date"
-    t.bigint "place_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["place_id"], name: "index_events_on_place_id"
-  end
-
-  create_table "places", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
+    t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,11 +35,10 @@ ActiveRecord::Schema.define(version: 2020_05_29_033854) do
   create_table "trips", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
-    t.bigint "place_id"
+    t.string "location"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["place_id"], name: "index_trips_on_place_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
@@ -61,9 +52,7 @@ ActiveRecord::Schema.define(version: 2020_05_29_033854) do
     t.string "uid"
   end
 
-  add_foreign_key "events", "places"
   add_foreign_key "trip_events", "events"
   add_foreign_key "trip_events", "trips"
-  add_foreign_key "trips", "places"
   add_foreign_key "trips", "users"
 end
