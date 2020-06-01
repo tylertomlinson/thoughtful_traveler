@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     patch '/', to: 'profile#update'
     get '/', to: 'dashboard#index'
 
-    resources :trips, only: [:index, :show, :new, :create, :edit]
-
+    resources :trips, only: [:index, :new, :create, :show, :edit]
+    resources :trip_events, only: [:update]
     resources :upcoming_trips
     resources :past_trips
   end

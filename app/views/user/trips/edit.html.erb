@@ -1,0 +1,11 @@
+<h1>Event Confirmation</h1>
+<section class='event-list'>
+  <% @trip.trip_events.each do |trip_event| %>
+  <article id="event-<%= trip_event.event_id %>">
+    <h3 id="event-<%= trip_event.event_id %>-name"><%= trip_event.event.name %></h3>
+    <div id="event-<%= trip_event.event_id %>-genre"><%= trip_event.event.genre %></div>
+    <%= button_to 'Pick Another',  user_trip_event_path(trip_event), method: :patch %>
+  </article>
+  <% end %>
+</section>
+<%= button_to 'Confirm Trip',  user_trip_path(@trip), method: :get %>
