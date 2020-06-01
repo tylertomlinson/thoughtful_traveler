@@ -16,14 +16,14 @@ RSpec.describe 'Past trips index' do
         click_on 'Past Trips'
       end
 
-      xit 'can see links to past trips' do
+      it 'can see links to past trips' do
         visit '/user/trips'
 
         expect(page).to have_link('Trip 1')
         expect(page).to have_link('Trip 2')
       end
 
-      xit 'can click past trip and be redirected to past trip show page' do
+      it 'can click past trip and be redirected to past trip show page' do
         visit '/user/trips'
 
         click_on 'Trip 1'
