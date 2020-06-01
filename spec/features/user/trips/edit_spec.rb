@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'As a user when i create a new trip' do
-  xit 'i am redirected to a trip edit page and i can request event changes' do
+  it 'i am redirected to a trip edit page and i can request event changes' do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     trip = user.trips.create(attributes_for(:trip))
