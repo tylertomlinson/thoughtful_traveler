@@ -7,6 +7,8 @@ RSpec.describe 'As a user when i create a new trip' do
     trip = user.trips.create(attributes_for(:trip))
     event1 = trip.events.create(attributes_for(:event))
     event2 = trip.events.create(attributes_for(:event))
+    event3 = EventSerializer.new(attributes_for(:event, genre: event2.genre))
+    allow_any_instance_of(EventService).to receive(:event_by_genre).and_return(event3)
 
     visit edit_user_trip_path(trip)
 
@@ -24,6 +26,7 @@ RSpec.describe 'As a user when i create a new trip' do
 
         click_button('Pick Another')
 
+        expect(find("#event-#{event2.id}-name")).to have_content(event3.name)
         expect(find("#event-#{event2.id}-name")).not_to have_content(event2.name)
       end
     end
