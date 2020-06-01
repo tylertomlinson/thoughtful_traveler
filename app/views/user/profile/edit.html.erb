@@ -1,9 +1,10 @@
+<div class="profile-edit">
+<div class="edit-text">
 <h1>Edit User Details</h1>
 <%= form_with model: @user do |form| %>
-  <%= form.text_field :name %></br></br>
-  </br>
-  </br>
-  <%= form.submit %>
+<h4>Name:</h4>
+  <%= form.text_field :name %><br><br>
+  <%= form.submit class:"btn btn-primary btn-sm" %>
 <% end %>
-</br>
-</br>
+</div>
+</div>

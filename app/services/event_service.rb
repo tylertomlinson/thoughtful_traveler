@@ -1,7 +1,7 @@
 class EventService
   def event_by_genre(genre)
     json = event_json(genre)
-    event = EventSerializer.new(json)
+    EventSerializer.new(json)
   end
 
   private
@@ -10,7 +10,7 @@ class EventService
     response = conn.get('event') do |f|
       f.params['genre'] = genre
     end
-    json = JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def conn
