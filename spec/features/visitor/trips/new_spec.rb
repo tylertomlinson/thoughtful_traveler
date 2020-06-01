@@ -33,6 +33,7 @@ RSpec.describe 'As a visitor' do
         check 'music'
         check 'sports'
       end
+
       click_on 'Create My Trip'
 
       expect(current_path).to eq("/user/trips/new")
