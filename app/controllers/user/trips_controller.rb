@@ -5,8 +5,13 @@ class User::TripsController < User::BaseController
 
   def create
     begin
-      trip = current_user.trips.create!(trip_params)
-      redirect_to edit_user_trip_path(trip)
+      if current_user == nil
+        flash[:notice] = "You must sign in to create a trip"
+        redirect_to "/user/trips/new"
+      else
+        trip = current_user.trips.create!(trip_params)
+        redirect_to edit_user_trip_path(trip)
+      end
     rescue ActiveRecord::RecordInvalid
       flash[:error] = errors.messages
       render new
