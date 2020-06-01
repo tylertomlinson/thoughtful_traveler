@@ -1,0 +1,5 @@
+<h1>My Trip To: <%= @trip.location %></h1>
+
+<% @trip.events.each do |event| %>
+  <h3>Event: <%= event.name %></h3></br>
+<% end %>

@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     resources :upcoming_trips
     resources :past_trips
   end
-
+  
+  post '/email', to: "email#create"
   get '/login', to: 'login#index'
   delete "/logout", to: "sessions#destroy"
   get '/auth/facebook/callback' => 'sessions#omniauth'

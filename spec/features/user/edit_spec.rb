@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'As a User' do
-  xit 'I see a button to edit my profile' do
-  end
   it 'I can edit my own details' do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
