@@ -1,6 +1,6 @@
 class EventSerializer
   attr_reader :genre, :name, :location, :date
-  
+
   def initialize(json)
     @genre = json[:genre]
     @name = json[:name]
