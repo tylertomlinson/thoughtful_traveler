@@ -1,9 +1,9 @@
 class User::TripsController < User::BaseController
   def index
-    if current_user == nil
+    current_user == nil?
       flash[:notice] = "You must sign in to create a trip"
       redirect_to "/login"
-    end
+    # end
   end
 
   def new; end
