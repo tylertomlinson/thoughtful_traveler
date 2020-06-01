@@ -9,12 +9,20 @@ Rails.application.routes.draw do
 
     resources :trips, only: [:index, :new, :create, :show, :edit]
     resources :trip_events, only: [:update]
-    resources :upcoming_trips
-    resources :past_trips
+
+    namespace :trips do
+      namespace :upcoming do
+        resources :trips, only: [:index]
+      end
+      namespace :past do
+        resources :trips, only: [:index]
+      end
+    end
+    # resources :upcoming_trips
+    # resources :past_trips
   end
 
   get '/login', to: 'login#index'
   delete "/logout", to: "sessions#destroy"
-  get '/auth/facebook/callback' => 'sessions#omniauth'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 end
