@@ -1,6 +1,6 @@
 <h1 class="text-center1">Trip Preferences</h1>
 
-<%= form_with model: @trip, url: new_visitor_trip_path do |form| %>
+<%= form_with model: @trip, url: visitor_trips_path do |form| %>
   <%= form.label :location %>
   <%= form.text_field :location %>
   <br>
