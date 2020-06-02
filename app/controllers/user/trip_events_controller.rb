@@ -1,8 +1,7 @@
 class User::TripEventsController < User::BaseController
   def new
-    @trip = Trip.find(params[:format])
-    @genres = params[:genres]
     binding.pry
+    @genres = params[:genres]
   end
 
   def update
