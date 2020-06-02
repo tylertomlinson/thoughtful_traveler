@@ -1,7 +1,7 @@
 class User::TripEventsController < User::BaseController
   def new
-    binding.pry
-    @genres = params[:genres]
+    genres = params[:genres]
+    trip_id = params[:trip_id]
   end
 
   def update

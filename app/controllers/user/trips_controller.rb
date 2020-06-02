@@ -6,7 +6,8 @@ class User::TripsController < User::BaseController
   def create
     begin
     trip = current_user.trips.create!(trip_params)
-    redirect_to new_user_trip_event_path(selected_genres.merge(trip_id: trip.id))
+    trip.populate(selected_genres)
+    redirect_to edit_user_trip_path(trip)
     rescue ActiveRecord::RecordInvalid
       flash[:error] = errors.messages
       render new
@@ -33,9 +34,7 @@ class User::TripsController < User::BaseController
   end
 
   def selected_genres
-    # require "pry"; binding.pry
-    { genres: genre_params.select { |key, value| value == "1" }.keys,
-      trip_id: params[:id]}
+    { genres: genre_params.select { |key, value| value == "1" }.keys }
   end
 
   def attraction_params
