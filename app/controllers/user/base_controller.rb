@@ -1,5 +1,5 @@
 class User::BaseController < ApplicationController
-  before_action :require_current_user, except: [:new, :index, :create]
+  before_action :require_current_user
 
   private
 

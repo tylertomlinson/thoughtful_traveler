@@ -9,7 +9,7 @@ RSpec.describe 'As a visitor' do
     end
 
     it 'I see a form to create a new trip' do
-      expect(current_path).to eq('/user/trips/new')
+      expect(current_path).to eq('/visitor/trips/new')
 
       expect(page).to have_content('Trip Preferences')
       expect(page).to have_content('Location')
@@ -33,7 +33,7 @@ RSpec.describe 'As a visitor' do
 
       click_on 'Create My Trip'
 
-      expect(current_path).to eq('/user/trips/new')
+      expect(current_path).to eq('/visitor/trips/new')
       expect(page).to have_content('You must sign in to create a trip')
     end
   end

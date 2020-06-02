@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
-  describe 'When I visit the trips index page' do
+  describe 'When I visit the visitor trips index page' do
     it 'I am redirected to the Google login page' do
-      visit '/user/trips'
+      visit '/visitor/trips'
 
       expect(current_path).to eq('/login')
     end
