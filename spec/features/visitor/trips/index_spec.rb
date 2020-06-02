@@ -5,7 +5,7 @@ RSpec.describe 'As a visitor' do
     it 'I am redirected to the Google login page' do
       visit '/user/trips'
 
-      expect(current_path).to eq("/login")
+      expect(current_path).to eq('/login')
     end
   end
 end

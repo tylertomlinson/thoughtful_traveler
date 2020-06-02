@@ -42,3 +42,9 @@ Style/IfUnlessModifier:
 
 Style/RedundantBegin:
   Enabled: false
+
+  Rails/LexicallyScopedActionFilter:
+    Enabled: false
+
+  Style/GuardClause:
+    Enabled: false
