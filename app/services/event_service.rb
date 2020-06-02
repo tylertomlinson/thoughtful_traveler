@@ -4,6 +4,14 @@ class EventService
     EventSerializer.new(json)
   end
 
+  def events_by_genres(genres)
+    response = conn.get('events') do |f|
+      f.params['genres'] = genres
+    end
+    JSON.parse(response.body, symbolize_names: true)
+    require "pry"; binding.pry
+  end
+
   private
 
   def event_json(genre)

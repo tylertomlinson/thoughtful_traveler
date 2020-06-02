@@ -4,6 +4,9 @@ class Trip < ApplicationRecord
   belongs_to :user
 
   def populate(genres)
+    EventService.new.events_by_genres(genres)
+
+
     require "pry"; binding.pry
   end
 end
