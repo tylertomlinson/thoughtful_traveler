@@ -15,7 +15,7 @@ RSpec.describe 'As a user on my dashboard' do
       fill_in 'start_date', with: '2525/01/01'
       fill_in 'end_date', with: '2525/12/12'
       within '.cuisine_options' do
-        check 'indian'
+        check 'french'
         check 'mexican'
         check 'italian'
       end
@@ -26,6 +26,16 @@ RSpec.describe 'As a user on my dashboard' do
       click_on 'Create My Trip'
 
       expect(current_path).to eq(edit_user_trip_path(Trip.first))
+      within(".trip_events") do
+        expect(page).to have_content('french')
+        expect(page).to have_content('mexican')
+        expect(page).to have_content('italian')
+        expect(page).to have_content('music')
+        expect(page).to have_content('sports')
+        expect(page).not_to have_content('indian')
+        expect(page).not_to have_content('tacos')
+        expect(page).not_to have_content('pool parties')
+      end
     end
   end
 end
