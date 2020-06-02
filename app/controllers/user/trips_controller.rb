@@ -34,7 +34,7 @@ class User::TripsController < User::BaseController
   end
 
   def selected_genres
-    { genres: genre_params.select { |key, value| value == "1" }.keys }
+    genre_params.select { |key, value| value == "1" }.keys
   end
 
   def attraction_params
