@@ -1,4 +1,10 @@
 class User::TripEventsController < User::BaseController
+  def new
+    @trip = Trip.find(params[:format])
+    @genres = params[:genres]
+    binding.pry
+  end
+
   def update
     trip_event = TripEvent.find(params[:id])
     old_event = Event.find(trip_event.event_id)
