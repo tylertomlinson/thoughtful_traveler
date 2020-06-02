@@ -21,7 +21,11 @@ Rails.application.routes.draw do
     # resources :upcoming_trips
     # resources :past_trips
   end
-  
+
+  namespace :visitor do
+    resources :trips, only: [:create]
+  end
+
   post '/email', to: "email#create"
   get '/login', to: 'login#index'
   delete "/logout", to: "sessions#destroy"
