@@ -3,7 +3,10 @@ class Trip < ApplicationRecord
   has_many :events, through: :trip_events
   belongs_to :user
 
-  def populate(genres)    
-    EventService.new.events_by_genres(genres)
+  def populate(genres)
+    event_list = EventService.new.events_by_genres(genres)
+    event_list.each do |event|
+      events << Event.create(event)
+    end
   end
 end

@@ -9,6 +9,7 @@ class EventService
       f.params['genres'] = genres
     end
     json = JSON.parse(response.body, symbolize_names: true)
+    EventSerializer.events_from(json)
   end
 
   private
