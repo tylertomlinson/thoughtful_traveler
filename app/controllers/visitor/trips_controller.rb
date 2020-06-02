@@ -1,6 +1,9 @@
 class Visitor::TripsController < Visitor::BaseController
 
-  def index; end
+  def create
+    render :new
+    flash[:notice] = 'You must sign in to create a trip'
+  end
 
-  def create; end
+  def new; end
 end

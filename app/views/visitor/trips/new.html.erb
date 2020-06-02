@@ -1,0 +1,46 @@
+<h1 class="text-center1">Trip Preferences</h1>
+
+<%= form_with model: @trip, url: new_visitor_trip_path do |form| %>
+  <%= form.label :location %>
+  <%= form.text_field :location %>
+  <br>
+  <%= form.label :start_date %>
+  <%= form.date_field :start_date %>
+  <br>
+  <%= form.label :end_date %>
+  <%= form.date_field :end_date %>
+  <section class="cuisine_options">
+    <h1 class="text-center1">Cuisine Options</h1>
+    <%= form.check_box "indian" %>
+    <%= form.label "Indian" %>
+    <%= form.check_box "mexican" %>
+    <%= form.label "Mexican" %>
+    <%= form.check_box "pizza" %>
+    <%= form.label "Pizza" %>
+    <br>
+    <%= form.check_box "italian" %>
+    <%= form.label "Italian" %>
+    <%= form.check_box "chinese" %>
+    <%= form.label "Chinese" %>
+    <%= form.check_box "american" %>
+    <%= form.label "American" %>
+  </section>
+  <section class="attraction_options">
+    <h1 class="text-center1">Attraction Options</h1>
+    <%= form.check_box "music" %>
+    <%= form.label "Music" %>
+    <%= form.check_box "sports" %>
+    <%= form.label "Sports" %>
+    <%= form.check_box "theater" %>
+    <%= form.label "Theater" %>
+    <br>
+    <%= form.check_box "amusement_parks" %>
+    <%= form.label "Amusement Parks" %>
+    <%= form.check_box "museums" %>
+    <%= form.label "Museums" %>
+    <%= form.check_box "zoo" %>
+    <%= form.label "Zoo" %>
+  </section>
+
+  <%= form.submit "Create My Trip", class: "btn btn-default btn-primary" %>
+<% end %>

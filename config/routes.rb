@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   end
 
   namespace :visitor do
-    resources :trips, only: [:index, :create]
+    resources :trips, only: [:new, :create]
   end
 
   post '/email', to: "email#create"
