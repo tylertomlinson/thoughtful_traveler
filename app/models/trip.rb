@@ -3,10 +3,7 @@ class Trip < ApplicationRecord
   has_many :events, through: :trip_events
   belongs_to :user
 
-  def populate(genres)
+  def populate(genres)    
     EventService.new.events_by_genres(genres)
-
-
-    require "pry"; binding.pry
   end
 end

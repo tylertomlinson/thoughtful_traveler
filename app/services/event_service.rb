@@ -8,8 +8,7 @@ class EventService
     response = conn.get('events') do |f|
       f.params['genres'] = genres
     end
-    JSON.parse(response.body, symbolize_names: true)
-    require "pry"; binding.pry
+    json = JSON.parse(response.body, symbolize_names: true)
   end
 
   private
