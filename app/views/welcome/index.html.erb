@@ -8,7 +8,11 @@
           <div class="carousel-content animated fadeInUp">
             <div class="text-center1">Your dream vacation is just a few clicks away!</div>
             <p></p>
+            <% if current_user %>
             <div class="text-center"><a href="user/trips/new" class="btn-get-started">Create Trip</a></div>
+            <% else %>
+            <div class="text-center"><a href="visitor/trips/new" class="btn-get-started">Create Trip</a></div>
+            <% end %>
           </div>
         </div>
       </div>

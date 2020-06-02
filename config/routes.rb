@@ -20,6 +20,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :visitor do
+    resources :trips, only: [:new, :create]
+  end
+
   post '/email', to: "email#create"
   get '/login', to: 'login#index'
   delete "/logout", to: "sessions#destroy"

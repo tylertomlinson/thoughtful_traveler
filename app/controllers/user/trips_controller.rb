@@ -1,16 +1,12 @@
 class User::TripsController < User::BaseController
-  def index
-    unless current_user
-      flash[:notice] = 'You must sign in to create a trip'
-      redirect_to '/login'
-    end
-  end
+  def index; end
 
   def new; end
 
   def create
     begin
-      current_user ? user_redirect_new_trip_events(selected_genres) : sign_in_to_create
+    trip = current_user.trips.create!(trip_params)
+    redirect_to edit_user_trip_path(trip)
     rescue ActiveRecord::RecordInvalid
       flash[:error] = errors.messages
       render new
@@ -36,18 +32,11 @@ class User::TripsController < User::BaseController
                   :sports, :theater, :amusement_parks, :museums, :zoo)
   end
 
-  def user_redirect_new_trip_events(genres)
-    trip = current_user.trips.create!(trip_params)
-    redirect_to new_user_trip_event_path(trip.id, genres)
-    binding.pry
-  end
-
-  def sign_in_to_create
-    flash[:notice] = 'You must sign in to create a trip'
-    redirect_to '/user/trips/new'
-  end
-
   def selected_genres
-    { genres: genre_params.select { |key, value| value == "1" }.keys }
+      { genres: genre_params.select { |key, value| value == "1" }.keys }
+
+  def attraction_params
+    params.permit(:music, :sports, :theater, :amusement_parks, :museums, :zoo)
   end
+end
 end
