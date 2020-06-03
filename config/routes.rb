@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get '/', to: 'dashboard#index'
 
     resources :trips, only: [:index, :new, :create, :show, :edit]
-    resources :trip_events, only: [:update]
+    resources :trip_events, only: [ :new, :update]
 
     namespace :trips do
       namespace :upcoming do
@@ -18,8 +18,6 @@ Rails.application.routes.draw do
         resources :trips, only: [:index]
       end
     end
-    # resources :upcoming_trips
-    # resources :past_trips
   end
 
   namespace :visitor do

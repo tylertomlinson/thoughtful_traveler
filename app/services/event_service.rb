@@ -4,6 +4,14 @@ class EventService
     EventSerializer.new(json)
   end
 
+  def events_by_genres(genres)
+    response = conn.get('events') do |f|
+      f.params['genres'] = genres.join(',')
+    end
+    json = JSON.parse(response.body, symbolize_names: true)
+    EventSerializer.events_from(json)
+  end
+
   private
 
   def event_json(genre)

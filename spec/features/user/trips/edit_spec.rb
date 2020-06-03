@@ -3,12 +3,17 @@ require 'rails_helper'
 RSpec.describe 'As a user when i create a new trip' do
   it 'i am redirected to a trip edit page and i can request event changes' do
     user = create(:user)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     trip = user.trips.create(attributes_for(:trip))
     event1 = trip.events.create(attributes_for(:event))
     event2 = trip.events.create(attributes_for(:event))
     event3 = EventSerializer.new(attributes_for(:event, genre: event2.genre))
-    allow_any_instance_of(EventService).to receive(:event_by_genre).and_return(event3)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    stub_request(:get, "http://localhost:9292/event?genre=#{event2.genre}")
+    .with(headers: {
+      'Accept' => '*/*',
+      'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+      'User-Agent' => 'Faraday v1.0.1'
+    }).to_return(status: 200, body: event3.to_json)
 
     visit edit_user_trip_path(trip)
 

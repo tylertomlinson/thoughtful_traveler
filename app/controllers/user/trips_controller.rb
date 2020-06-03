@@ -5,8 +5,9 @@ class User::TripsController < User::BaseController
 
   def create
     begin
-    trip = current_user.trips.create!(trip_params)
-    redirect_to edit_user_trip_path(trip)
+      trip = current_user.trips.create!(trip_params)
+      trip.populate(selected_genres)
+      redirect_to edit_user_trip_path(trip)
     rescue ActiveRecord::RecordInvalid
       flash[:error] = errors.messages
       render new
@@ -27,8 +28,13 @@ class User::TripsController < User::BaseController
     params.permit(:location, :start_date, :end_date)
   end
 
-  def cuisine_params
-    params.permit(:indian, :mexican, :pizza, :italian, :american)
+  def genre_params
+    params.permit(:indian, :mexican, :pizza, :italian, :american, :music,
+                  :sports, :theater, :amusement_parks, :museums, :zoo)
+  end
+
+  def selected_genres
+    genre_params.select { |_, value| value == '1' }.keys
   end
 
   def attraction_params

@@ -43,8 +43,11 @@ Style/IfUnlessModifier:
 Style/RedundantBegin:
   Enabled: false
 
-  Rails/LexicallyScopedActionFilter:
-    Enabled: false
+Layout/HashAlignment:
+  Enabled: false
 
-  Style/GuardClause:
-    Enabled: false
+Layout/FirstHashElementIndentation:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: false  
