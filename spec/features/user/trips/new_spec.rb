@@ -5,6 +5,15 @@ RSpec.describe 'As a user on my dashboard' do
     it 'I can see a form to make a new trip' do
       @user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+      file = File.read('spec/fixtures/response.json')
+      stub_request(:get, 'http://localhost:9292/events?genres=indian,mexican,italian,music,sports')
+      .with(
+        headers: {
+          'Accept' => '*/*',
+          'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+          'User-Agent' => 'Faraday v1.0.1'
+          }
+      ).to_return(status: 200, body: file, headers: {})
 
       visit '/user'
 
@@ -27,8 +36,8 @@ RSpec.describe 'As a user on my dashboard' do
 
       expect(current_path).to eq(edit_user_trip_path(Trip.first))
 
-      # within(".trip_events") do
-      #   expect(page).to have_content('indian')
+      # within('.trip_events") do
+      #   expect(page'.to have_conten'('india'')
       #   expect(page).to have_content('mexican')
       #   expect(page).to have_content('italian')
       #   expect(page).to have_content('music')

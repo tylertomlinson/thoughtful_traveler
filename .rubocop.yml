@@ -50,4 +50,4 @@ Layout/FirstHashElementIndentation:
   Enabled: false
 
 Layout/MultilineMethodCallIndentation:
-  Enabled: false
+  Enabled: false  

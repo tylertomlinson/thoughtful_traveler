@@ -1,0 +1,36 @@
+{
+    "genres": {
+        "indian": [
+            {
+                "name": "Thirsty Steakhouse",
+                "date": "2020-06-04",
+                "location": "333 Lewis Meadows",
+                "genre": "indian"
+            },
+            {
+                "name": "Red House",
+                "date": "2020-06-09",
+                "location": "6497 Jerrod Square",
+                "genre": "indian"
+            },
+            {
+                "name": "Fat Pub",
+                "date": "2020-06-11",
+                "location": "9044 Bins Oval",
+                "genre": "indian"
+            },
+            {
+                "name": "ZST Juice Bar",
+                "date": "2020-06-10",
+                "location": "71972 Wolff Viaduct",
+                "genre": "indian"
+            },
+            {
+                "name": "Fat Cafe",
+                "date": "2020-06-04",
+                "location": "9969 Smith Haven",
+                "genre": "indian"
+            }
+        ]
+    }
+}
