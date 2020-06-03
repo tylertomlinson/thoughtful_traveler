@@ -1,7 +1,7 @@
 class User::TripEventsController < User::BaseController
   def new
-    genres = params[:genres]
-    trip_id = params[:trip_id]
+    params[:genres]
+    params[:trip_id]
   end
 
   def update
