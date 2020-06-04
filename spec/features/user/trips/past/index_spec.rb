@@ -16,7 +16,7 @@ RSpec.describe 'Past Trips Index' do
         expect(page).to have_button("Trip to #{@trip.location}")
       end
 
-      it "I can click past trip link to go to trip show page" do
+      it 'I can click past trip link to go to trip show page' do
         click_button("Trip to #{@trip.location}")
 
         expect(current_path).to eq("/user/trips/#{@trip.id}")
