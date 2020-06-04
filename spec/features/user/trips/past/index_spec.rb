@@ -13,8 +13,13 @@ RSpec.describe 'Past Trips Index' do
       end
 
       it 'I can see all past trips as links' do
-        save_and_open_page
         expect(page).to have_button("Trip to #{@trip.location}")
+      end
+
+      it "I can click past trip link to go to trip show page" do
+        click_button("Trip to #{@trip.location}")
+
+        expect(current_path).to eq("/user/trips/#{@trip.id}")
       end
     end
   end
