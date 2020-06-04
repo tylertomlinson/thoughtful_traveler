@@ -1,5 +1,5 @@
 <h1> Past Trips </h1>
 
-  <% @past_trips.each do |trip| %>
+  <% @trips.each do |trip| %>
     <%= button_to "Trip to #{trip.location}", "/user/trips/#{trip.id}", method: :get %>
   <% end %>
