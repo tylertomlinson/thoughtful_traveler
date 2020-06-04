@@ -15,7 +15,7 @@ Rails.application.routes.draw do
         resources :trips, only: [:index]
       end
       namespace :past do
-        resources :trips, only: [:index]
+        resources :trips, only: [:index, :show]
       end
     end
   end

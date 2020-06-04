@@ -9,4 +9,8 @@ class Trip < ApplicationRecord
       events << Event.create(event)
     end
   end
+
+  def self.past_trips
+    where('end_date < ?', 1.day.ago)
+  end
 end

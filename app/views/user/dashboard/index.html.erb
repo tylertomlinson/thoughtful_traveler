@@ -54,5 +54,7 @@
 
   <%= link_to "Upcoming Trips", user_trips_upcoming_trips_path, class:"btn btn-primary" %>
 
+  <% if @user.trips.exists? %>
   <%= link_to "Past Trips", user_trips_past_trips_path, class:"btn btn-primary" %>
+  <% end %>
 </div>
