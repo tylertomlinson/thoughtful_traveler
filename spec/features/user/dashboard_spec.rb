@@ -32,7 +32,7 @@ RSpec.describe 'User Dashboard Index' do
         @user.trips.create(attributes_for(:trip, :upcoming_trip))
         visit '/user'
 
-        expect(page).to have_link('Past Trips')
+        expect(page).to have_link('Upcoming Trips')
       end
 
       it 'I cant see upcoming trips button if there are no past trips' do
