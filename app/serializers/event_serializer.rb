@@ -1,4 +1,5 @@
 class EventSerializer
+
   attr_reader :genre, :name, :location, :date
 
   def initialize(json)
@@ -10,8 +11,8 @@ class EventSerializer
 
   def self.events_from(events_json)
     response = []
-    events_json[:genres].each do |events|
-      response << events[1][0]
+    events_json.each do |events|
+      response << events
     end
     response
   end

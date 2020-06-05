@@ -6,7 +6,7 @@ class User::TripsController < User::BaseController
   def create
     begin
       trip = current_user.trips.create!(trip_params)
-      trip.populate(selected_genres)
+      trip.populate(selected_genres, trip_params)
       redirect_to edit_user_trip_path(trip)
     rescue ActiveRecord::RecordInvalid
       flash[:error] = errors.messages
@@ -25,7 +25,7 @@ class User::TripsController < User::BaseController
   private
 
   def trip_params
-    params.permit(:location, :start_date, :end_date)
+    params.permit(:city, :state, :start_date, :end_date)
   end
 
   def genre_params
