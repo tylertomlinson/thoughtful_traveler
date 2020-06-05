@@ -4,6 +4,26 @@
   <h3>Event: <%= event.name %></h3></br>
 <% end %>
 
+<html>
+  <head>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="floating-panel">
+      <button id="drop" onclick="drop()">Drop Markers</button>
+    </div>
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTwvaJWTBV6P0rdM98__jCC0BZ7lF6o-Q&callback=initMap"
+    async defer></script>
+  </body>
+</html>
+
 <div class="form-wrapper">
   <%= form_tag '/email', method: :post do %>
     <div class="form-group">
