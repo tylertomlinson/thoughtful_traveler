@@ -1,0 +1,5 @@
+<h1> Upcoming Trips </h1>
+
+  <% @trips.each do |trip| %>
+    <%= button_to "Trip to #{trip.location}", "/user/trips/#{trip.id}", method: :get %>
+  <% end %>

@@ -1,3 +1,5 @@
 class User::Trips::Past::TripsController < User::BaseController
-  def index; end
+  def index
+    @trips = Trip.past_trips
+  end
 end
