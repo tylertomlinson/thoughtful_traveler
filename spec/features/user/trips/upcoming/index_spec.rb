@@ -13,13 +13,11 @@ RSpec.describe 'Upcoming Trips Index' do
       end
 
       it 'I can see all upcoming trips as links' do
-        save_and_open_page
         expect(page).to have_button("Trip to #{@trip.location}")
       end
 
       it 'I can click upcoming trip link to go to trip show page' do
         click_button("Trip to #{@trip.location}")
-
         expect(current_path).to eq("/user/trips/#{@trip.id}")
       end
     end
