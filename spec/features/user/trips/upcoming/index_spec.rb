@@ -7,18 +7,16 @@ RSpec.describe 'Upcoming Trips Index' do
         @user = create(:user)
         @trip = @user.trips.create(attributes_for(:trip, :upcoming_trip))
 
-        # require "pry"; binding.pry
-
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
         visit '/user/trips/upcoming/trips'
       end
 
-      it 'I can see all past trips as links' do
-        expect(page).to have_button("Trip to #{@trip.location}")
+      it 'I can see all upcoming trips as links' do
+        expect(page).to have_link("Trip to #{@trip.location}")
       end
 
-      it 'I can click past trip link to go to trip show page' do
+      it 'I can click upcoming trip link to go to trip show page' do
         click_button("Trip to #{@trip.location}")
 
         expect(current_path).to eq("/user/trips/#{@trip.id}")
