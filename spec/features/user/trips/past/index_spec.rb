@@ -5,7 +5,7 @@ RSpec.describe 'Past Trips Index' do
     describe 'On the past trips index' do
       before(:each) do
         @user = create(:user)
-        @trip = @user.trips.create(attributes_for(:trip))
+        @trip = @user.trips.create(attributes_for(:trip, :past_trip))
 
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
