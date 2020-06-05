@@ -1,8 +1,11 @@
 <h1 class="text-center1">Trip Preferences</h1>
 
 <%= form_with model: @trip, url: user_trips_path do |form| %>
-  <%= form.label :location %>
-  <%= form.text_field :location %>
+  <%= form.label :city %>
+  <%= form.text_field :city %>
+  <br>
+  <%= form.label :state %>
+  <%= form.text_field :state %>
   <br>
   <%= form.label :start_date %>
   <%= form.date_field :start_date %>

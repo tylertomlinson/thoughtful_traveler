@@ -4,16 +4,17 @@ class EventService
     EventSerializer.new(json)
   end
 
-  def events_by_genres(genres)
+  def events_by_genres(genres, trip_params)
     response = conn.get('events') do |f|
       f.params['genres'] = genres.join(',')
-    end
+      f.params['city'] = trip_params[:city]
+      f.params['state'] = trip_params[:state]
+     end
     json = JSON.parse(response.body, symbolize_names: true)
     EventSerializer.events_from(json)
   end
 
   private
-
   def event_json(genre)
     response = conn.get('event') do |f|
       f.params['genre'] = genre
@@ -22,6 +23,6 @@ class EventService
   end
 
   def conn
-    Faraday.new(url: 'http://localhost:9292')
+    Faraday.new(url: 'https://thoughtful-events.herokuapp.com')
   end
 end
