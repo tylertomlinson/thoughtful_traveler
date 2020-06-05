@@ -23,20 +23,25 @@ RSpec.describe 'User Dashboard Index' do
         expect(current_path).to eq('/user/trips/new')
       end
 
-      it 'I can see upcoming trips button and it routes to correct page' do
+      it 'I cant see upcoming trips button if there are no upcoming trips' do
         visit '/user'
-        click_link 'Upcoming Trips'
-
-        expect(current_path).to eq(user_trips_upcoming_trips_path)
+        expect(page).to_not have_link('Upcoming Trips')
       end
 
-      it 'I cant see past trips button if there are no past trips' do
+      it 'I can see past trips button if there are upcoming trips' do
+        @user.trips.create(attributes_for(:trip, :upcoming_trip))
+        visit '/user'
+
+        expect(page).to have_link('Upcoming Trips')
+      end
+
+      it 'I cant see upcoming trips button if there are no past trips' do
         visit '/user'
         expect(page).to_not have_link('Past Trips')
       end
 
       it 'I can see past trips button if there are past trips' do
-        @user.trips.create(attributes_for(:trip))
+        @user.trips.create(attributes_for(:trip, :past_trip))
         visit '/user'
 
         expect(page).to have_link('Past Trips')

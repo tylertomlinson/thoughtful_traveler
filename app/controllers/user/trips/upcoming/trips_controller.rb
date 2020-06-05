@@ -1,3 +1,5 @@
 class User::Trips::Upcoming::TripsController < User::BaseController
-  def index; end
+  def index
+    @trips = Trip.upcoming_trips
+  end
 end
